@@ -16,7 +16,7 @@ BEGIN
   -- That's why i preapare an index TBS name depends on table TBS name
   
   for cur in (
-    SELECT PARTITION_NAME, REPLACE(TABLESPACE_NAME,'_D','_I') as TABLESPACE_NAME
+    SELECT PARTITION_NAME, REPLACE(TABLESPACE_NAME,'_D','_I') as TABLESPACE_NAME --if name complex use REGEXP_REPLACE(TABLESPACE_NAME,'_D$','_I')
     FROM all_tab_partitions
     WHERE TABLE_OWNER = v_tab_owner AND TABLE_NAME = v_tab_name
     ORDER BY PARTITION_POSITION
