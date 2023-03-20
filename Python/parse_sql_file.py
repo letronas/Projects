@@ -25,6 +25,8 @@ for i in path_content:
 
 unique_tables = set(tables)  # remove duplicates
 
-for el in unique_tables:
-    print(el)
+# set doesn't store sorted data, we need to convert it
+lst_sorted = sorted(unique_tables, key=lambda x: x.split('.')[0])
 
+for el in lst_sorted:
+    print(el)
